@@ -1,13 +1,29 @@
 import React from 'react'
 import styles from './App.module.css'
-import { Header, Footer, SideMenu, Carousel } from './components'
-import { Row, Col } from 'antd'
+import {
+  Header,
+  Footer,
+  Carousel,
+  SideMenu,
+  ProductCollection,
+  BusinessPartner,
+} from './components'
+import { Row, Col, Typography } from 'antd'
+import { productList1, productList2, productList3 } from './mockups'
+import sideImage from './assets/images/sider_2019_12-09.png'
+import sideImage2 from './assets/images/sider_2019_02-04.png'
+import sideImage3 from './assets/images/sider_2019_02-04-2.png'
 
-// import {} from '@antd'
-const App: React.FC = () => {
+import sideImage11 from './assets/images/facebook-807588_640.png'
+import sideImage22 from './assets/images/follow-826033_640.png'
+import sideImage33 from './assets/images/icon-720944_640.png'
+import sideImage44 from './assets/images/microsoft-80658_640.png'
+
+function App() {
   return (
     <div className={styles.App}>
       <Header />
+      {/* 页面内容 content */}
       <div className={styles['page-content']}>
         <Row style={{ marginTop: 20 }}>
           <Col span={6}>
@@ -17,8 +33,36 @@ const App: React.FC = () => {
             <Carousel />
           </Col>
         </Row>
+        <ProductCollection
+          title={
+            <Typography.Title level={3} type="warning">
+              爆款推荐
+            </Typography.Title>
+          }
+          sideImage={sideImage}
+          products={productList1}
+        />
+        <ProductCollection
+          title={
+            <Typography.Title level={3} type="danger">
+              新品上市
+            </Typography.Title>
+          }
+          sideImage={sideImage2}
+          products={productList2}
+        />
+        <ProductCollection
+          title={
+            <Typography.Title level={3} type="success">
+              国内游推荐
+            </Typography.Title>
+          }
+          sideImage={sideImage3}
+          products={productList3}
+        />
+        <BusinessPartner />
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
   )
 }
